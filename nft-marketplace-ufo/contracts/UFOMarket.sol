@@ -41,6 +41,12 @@ contract UFOMarket is ReentrancyGuard
         uint256 price;
         bool sold;
     }
+
     // token id to return wich market token - fetch wich one it is 
+    mapping (uint256 => marketToken) private idToTokenItem;
+
+    // listen event from frontend app
+    event MarketTokenMinted(uint indexed itemId, address indexed nftContract,uint256 tokenId,address seller,address owner,uint256 price,bool sold);
+    
 
 }
