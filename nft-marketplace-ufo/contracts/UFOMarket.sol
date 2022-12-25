@@ -43,14 +43,41 @@ contract UFOMarket is ReentrancyGuard
     }
 
     // token id to return wich market token - fetch wich one it is 
-    mapping (uint256 => marketToken) private idToTokenItem;
+    mapping (uint256 => marketToken) private idToMarketToken;
 
     // listen event from frontend app
     event MarketTokenMinted(uint indexed itemId, address indexed nftContract,uint256 tokenId,address seller,address owner,uint256 price,bool sold);
     
+    // get the listing price
     function getListingPrice() public view returns(uint)
     {
         return listingPrice;
     }
+
+    // tow func to intract with contract
+    // 1. create a market item ot put it up for sale
+    // 2. create a matket sale for buying and selleing between parties
+    function mintMarketItem(address nftContract, uint tokenId , uint price) public payable nonReentrant{
+        // nonReentrant is a modifier to prevent reentry attack
+
+        require (price > 0 , "price must be at least one wei");
+        require (msg.value == listingPrice, "price must equals ot listing price");
+
+        _tokenids.increment();
+        uint itemId = _tokenids.current();
+
+        // putting it up for sale - bool - no owner
+        idToMarketToken[itemId] = marketToken
+        (
+            itemId,
+            tokenId,
+            nftContract,
+            payable(msg.sender),
+            payable(address(0)),
+            price,
+            false
+        );
+    }
+
 
 }
