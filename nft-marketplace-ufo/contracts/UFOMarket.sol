@@ -48,5 +48,9 @@ contract UFOMarket is ReentrancyGuard
     // listen event from frontend app
     event MarketTokenMinted(uint indexed itemId, address indexed nftContract,uint256 tokenId,address seller,address owner,uint256 price,bool sold);
     
+    function getListingPrice() public view returns(uint)
+    {
+        return listingPrice;
+    }
 
 }
