@@ -88,5 +88,44 @@ contract UFOMarket is ReentrancyGuard {
             price,
             false
         );
+        // nft transactions
+        IERC721(nftContract).transferFrom(msg.sender, address(this), tokenId);
+
+        emit MarketTokenMinted(
+            itemId,
+            nftContract,
+            tokenId,
+            msg.sender,
+            address(0),
+            price,
+            false
+        );
     }
+
+    // function to condunt tranactions and market sales
+    function createMarketSale(address nftContract, uint itemId)
+        public
+        payable
+        nonReentrant
+    {
+        uint price = idToMarketToken[itemId].price;
+        uint tokenId = idToMarketToken[itemId].tokenId;
+        require(msg.value == price, "place submit the asking price in order to continue");
+
+        // transfer the amount to the seller
+        idToMarketToken[itemId].seller.transfer(msg.value);
+
+        // transfer the token from contract address to the buyer
+        IERC721(nftContract).transferFrom(address(this), msg.sender, tokenId);
+
+        // set new owner
+        idToMarketToken[itemId].owner = payable(msg.sender);
+
+        // sale
+        idToMarketToken[itemId].sold = true;
+
+        _tokenSold.increment();
+    }
+
+    // function to fetchMarketItems
 }
