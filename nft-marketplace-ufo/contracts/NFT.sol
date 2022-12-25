@@ -27,8 +27,15 @@ contract NFT is ERC721URIStorage
         uint256 newItemId = _tokenids.current();
 
         _mint(msg.sender, newItemId);
+
+        // set token URI
         _setTokenURI(newItemId, _tokenURI);
+
+        // give the marketplace the approval to transact between users
+        setApprovalForAll(contractAddress, true);
         
+        // mint the token and set it for sale - return the id to do so
+        return newItemId;
     }
 
 
