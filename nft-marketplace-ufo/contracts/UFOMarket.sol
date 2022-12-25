@@ -125,7 +125,29 @@ contract UFOMarket is ReentrancyGuard {
         idToMarketToken[itemId].sold = true;
 
         _tokenSold.increment();
+
+        payable(owner).transfer(listingPrice);
     }
 
-    // function to fetchMarketItems
+    // function to fetchMarketItems - minting, buying and selling
+    // return number of unsold items
+    function fetchMarkeToken () public view returns(marketToken [] memory)
+    {
+        uint itemCount = _tokenids.current();
+        uint unsoldItemCount = _tokenids.current() - _tokenSold.current();
+        uint currentIndex = 0;
+
+        // looping over the number of items created (if number has not been sold populate the array)
+        marketToken[] memory items = new marketToken[](unsoldItemCount);
+        for (uint i=0; i < itemCount; i++)
+        {
+            if (idToMarketToken[i + 1].owner == address(0)){
+                uint currentId = i + 1;
+                marketToken storage currentItem = idToMarketToken[currentId];
+                items[currentIndex] = currentItem;
+                currentIndex += 1;
+            }
+        }
+        return items;
+    }
 }
