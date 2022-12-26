@@ -156,7 +156,7 @@ contract UFOMarket is ReentrancyGuard {
         uint totalItemCount = _tokenids.current();
         // a socend counter for each indicidual user
         uint itemCount = 0;
-        uint currentInedx = 0;
+        uint currentIndex = 0;
         
         for (uint i=0; i < totalItemCount; i++)
         {
@@ -177,8 +177,38 @@ contract UFOMarket is ReentrancyGuard {
                 //curren array
                 marketToken storage currenItem = idToMarketToken[currentId];
                 items[currentId] = currenItem;
-                currentInedx +=1;
+                currentIndex +=1;
             }
         }
+    }
+
+    // function for returning an array fofr minted nfts
+    function fetchItemsCreaeted () public view returns(marketToken [] memory)
+    {
+        uint totalItemCount = _tokenids.current();
+        uint itemCount = 0;
+        uint currentIndex = 0;
+
+        for (uint i=0; i < totalItemCount; i++)
+        {
+            if (idToMarketToken[i+1].seller == msg.sender)
+            {
+                itemCount +=1;
+            }
+        }
+
+        // second loop to loop truough the amount you hace purchest with itemcount
+        // check to see if the owner address is equal to msg.sender
+        marketToken[] memory items = new marketToken[](itemCount);
+        for (uint i = 0 ; i < totalItemCount ; i++)
+        {
+            if (idToMarketToken[i + 1].seller == msg.sender)
+            {
+                uint currentId = idToMarketToken[i+1].itemId;
+                marketToken storage currenItem = idToMarketToken[currentId];
+                items[currentId] = currenItem;
+                currentIndex +=1;
+            }
+        }return items;
     }
 }
