@@ -110,7 +110,10 @@ contract UFOMarket is ReentrancyGuard {
     {
         uint price = idToMarketToken[itemId].price;
         uint tokenId = idToMarketToken[itemId].tokenId;
-        require(msg.value == price, "place submit the asking price in order to continue");
+        require(
+            msg.value == price,
+            "place submit the asking price in order to continue"
+        );
 
         // transfer the amount to the seller
         idToMarketToken[itemId].seller.transfer(msg.value);
@@ -131,17 +134,15 @@ contract UFOMarket is ReentrancyGuard {
 
     // function to fetchMarketItems - minting, buying and selling
     // return number of unsold items
-    function fetchMarkeToken () public view returns(marketToken [] memory)
-    {
+    function fetchMarkeToken() public view returns (marketToken[] memory) {
         uint itemCount = _tokenids.current();
         uint unsoldItemCount = _tokenids.current() - _tokenSold.current();
         uint currentIndex = 0;
 
         // looping over the number of items created (if number has not been sold populate the array)
         marketToken[] memory items = new marketToken[](unsoldItemCount);
-        for (uint i=0; i < itemCount; i++)
-        {
-            if (idToMarketToken[i + 1].owner == address(0)){
+        for (uint i = 0; i < itemCount; i++) {
+            if (idToMarketToken[i + 1].owner == address(0)) {
                 uint currentId = i + 1;
                 marketToken storage currentItem = idToMarketToken[currentId];
                 items[currentIndex] = currentItem;
@@ -152,63 +153,56 @@ contract UFOMarket is ReentrancyGuard {
     }
 
     // return nft that the user has purchased
-    function fetchMyNft () public view returns(marketToken [] memory){
+    function fetchMyNft() public view returns (marketToken[] memory) {
         uint totalItemCount = _tokenids.current();
         // a socend counter for each indicidual user
         uint itemCount = 0;
         uint currentIndex = 0;
-        
-        for (uint i=0; i < totalItemCount; i++)
-        {
-            if (idToMarketToken[i+1].owner == msg.sender)
-            {
-                itemCount +=1;
+
+        for (uint i = 0; i < totalItemCount; i++) {
+            if (idToMarketToken[i + 1].owner == msg.sender) {
+                itemCount += 1;
             }
         }
 
         // second loop to loop truough the amount you hace purchest with itemcount
         // check to see if the owner address is equal to msg.sender
         marketToken[] memory items = new marketToken[](itemCount);
-        for (uint i = 0 ; i < totalItemCount ; i++)
-        {
-            if (idToMarketToken[i + 1].owner == msg.sender)
-            {
-                uint currentId = idToMarketToken[i+1].itemId;
+        for (uint i = 0; i < totalItemCount; i++) {
+            if (idToMarketToken[i + 1].owner == msg.sender) {
+                uint currentId = idToMarketToken[i + 1].itemId;
                 //curren array
                 marketToken storage currenItem = idToMarketToken[currentId];
                 items[currentId] = currenItem;
-                currentIndex +=1;
+                currentIndex += 1;
             }
         }
+        return items;
     }
 
     // function for returning an array fofr minted nfts
-    function fetchItemsCreaeted () public view returns(marketToken [] memory)
-    {
+    function fetchItemsCreaeted() public view returns (marketToken[] memory) {
         uint totalItemCount = _tokenids.current();
         uint itemCount = 0;
         uint currentIndex = 0;
 
-        for (uint i=0; i < totalItemCount; i++)
-        {
-            if (idToMarketToken[i+1].seller == msg.sender)
-            {
-                itemCount +=1;
+        for (uint i = 0; i < totalItemCount; i++) {
+            if (idToMarketToken[i + 1].seller == msg.sender) {
+                itemCount += 1;
             }
         }
 
         // second loop to loop truough the amount you hace purchest with itemcount
         // check to see if the owner address is equal to msg.sender
         marketToken[] memory items = new marketToken[](itemCount);
-        for (uint i = 0 ; i < totalItemCount ; i++)
-        {
-            if (idToMarketToken[i + 1].seller == msg.sender)
-            {
-                uint currentId = idToMarketToken[i+1].itemId;
+        for (uint i = 0; i < totalItemCount; i++) {
+            if (idToMarketToken[i + 1].seller == msg.sender) {
+                uint currentId = idToMarketToken[i + 1].itemId;
                 marketToken storage currenItem = idToMarketToken[currentId];
                 items[currentId] = currenItem;
-                currentIndex +=1;
+                currentIndex += 1;
             }
-        }return items;
+        }
+        return items;
     }
 }
