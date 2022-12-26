@@ -24,15 +24,15 @@ describe("UFOMarket", function () {
     await nft.mintToken("https-t1")
     await nft.mintToken("https-t2")
 
-    await market.makeMarketItem(nftContractAddress, 1 , actionPrice)
-    await market.makeMarketItem(nftContractAddress, 2 , actionPrice)
+    await market.makeMarketItem(nftContractAddress, 1 , actionPrice, {value : listingPrice})
+    await market.makeMarketItem(nftContractAddress, 2 , actionPrice, {value : listingPrice})
 
     //test for diffrent addresses from diffrent users - test accounts
     //return an array oh however many addresses
     const [_, buyerAddress] = await ethers.getSigner()
 
     // create a market sale with address id and price 
-    await market.connect(buyerAddress).createMarketSale(nftContractAddress,1)
+    await market.connect(buyerAddress).createMarketSale(nftContractAddress,1, {value : actionPrice})
 
     const items = await market.fetchMarkeTokens()
 
