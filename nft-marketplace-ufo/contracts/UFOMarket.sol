@@ -62,7 +62,7 @@ contract UFOMarket is ReentrancyGuard {
     // tow func to intract with contract
     // 1. create a market item ot put it up for sale
     // 2. create a matket sale for buying and selleing between parties
-    function mintMarketItem(
+    function makeMarketItem(
         address nftContract,
         uint tokenId,
         uint price
@@ -134,7 +134,7 @@ contract UFOMarket is ReentrancyGuard {
 
     // function to fetchMarketItems - minting, buying and selling
     // return number of unsold items
-    function fetchMarkeToken() public view returns (marketToken[] memory) {
+    function fetchMarkeTokens() public view returns (marketToken[] memory) {
         uint itemCount = _tokenids.current();
         uint unsoldItemCount = _tokenids.current() - _tokenSold.current();
         uint currentIndex = 0;
