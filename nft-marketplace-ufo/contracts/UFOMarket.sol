@@ -150,4 +150,35 @@ contract UFOMarket is ReentrancyGuard {
         }
         return items;
     }
+
+    // return nft that the user has purchased
+    function fetchMyNft () public view returns(marketToken [] memory){
+        uint totalItemCount = _tokenids.current();
+        // a socend counter for each indicidual user
+        uint itemCount = 0;
+        uint currentInedx = 0;
+        
+        for (uint i=0; i < totalItemCount; i++)
+        {
+            if (idToMarketToken[i+1].owner == msg.sender)
+            {
+                itemCount +=1;
+            }
+        }
+
+        // second loop to loop truough the amount you hace purchest with itemcount
+        // check to see if the owner address is equal to msg.sender
+        marketToken[] memory items = new marketToken[](itemCount);
+        for (uint i = 0 ; i < totalItemCount ; i++)
+        {
+            if (idToMarketToken[i + 1].owner == msg.sender)
+            {
+                uint currentId = idToMarketToken[i+1].itemId;
+                //curren array
+                marketToken storage currenItem = idToMarketToken[currentId];
+                items[currentId] = currenItem;
+                currentInedx +=1;
+            }
+        }
+    }
 }
