@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bgcPurple
+{
+  background : purple;
+  display:flex;
+  color:white;
+
+}
+
+.justifyCen
+{
+  justify-content: center;
+  display:flex;
+  margin-top:4px;
+}

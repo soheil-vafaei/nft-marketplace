@@ -4,21 +4,21 @@ import Link from 'next/link'
 function UFOMarketplace({Component, pageProps})
 {
   return(
-    <dev class='border-b p-6' style={{backgroundColor:'purple'}}>
+    <dev className='border-b p-6 bgcPurple'>
       <nav>
         <p className='test-4x1 font-bold text-white'>UFO Marketplace</p>
-        <dev className='flex mt-4 justify-center'>
+        <dev className='justifyCen'>
           <Link id='link' href='/'>
-              Main MarketPlace
+              Main MarketPlace |
           </Link>
           <Link id='link' href='/mint-item'>
-            mint tokens
+            mint tokens |
           </Link>
           <Link id='link' href='/nfts'>
-            my nfts
+            my nfts |
           </Link>
           <Link href='/account-dash'>
-            account dashboard
+            account dashboard 
           </Link>
         </dev>
       </nav>

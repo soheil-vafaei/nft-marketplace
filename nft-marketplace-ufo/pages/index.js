@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <dev>
-      UFO MARKETPLACE
+      {/* UFO MARKETPLACE */}
     </dev>
   )
 }
