@@ -1,29 +1,23 @@
-import '../styles/globals.css'
+import "../styles/app.css"
 import Link from 'next/link'
 
-function UFOMarketplace({Component, pageProps})
-{
-  return(
-    <dev className='border-b p-6 bgcPurple'>
-      <nav>
-        <p className='test-4x1 font-bold text-white'>UFO Marketplace</p>
-        <dev className='justifyCen'>
-          <Link id='link' href='/'>
-              Main MarketPlace |
-          </Link>
-          <Link id='link' href='/mint-item'>
-            mint tokens |
-          </Link>
-          <Link id='link' href='/nfts'>
-            my nfts |
-          </Link>
-          <Link href='/account-dash'>
-            account dashboard 
-          </Link>
+function UFOMarketplace({ Component, pageProps }) {
+  return (
+    <>
+
+      <dev className="header--fix">
+        <h1 className="name--market ">UFO MARKETPLACE</h1>
+        <dev className="header--d">
+          <nav className="header--main">
+            <Link className="link--headers" href="/">MAIN MARKETPLACE</Link>
+            <Link className="link--headers" href="/mint-token">MINT TOKEN</Link>
+            <Link className="link--headers" href="/my-nfts">MY NFTs</Link>
+            <Link className="link--headers am-0" href="/account-dashboard">ACCOUNT DASHBOARD</Link>
+          </nav>
         </dev>
-      </nav>
-      <Component {...pageProps}/>
-    </dev>
+      </dev>
+      <Component {...pageProps} />
+    </>
   )
 }
 
