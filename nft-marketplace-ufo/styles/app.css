@@ -2,6 +2,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .main 
+{
+    background: rgb(10,29,14);
+    background: linear-gradient(157deg, rgba(10,29,14,1) 0%, rgba(31,112,37,1) 65%, rgba(106,227,112,1) 100%);
+} */
 .header--main
 {
     display:flex;
@@ -28,8 +34,13 @@
     text-align:center;
     justify-content: start;
     align-items:center;
-
 }
+
+.icon-name--header
+{
+    margin-top: 14px;
+}
+
 Image
 {
     display:flex;
