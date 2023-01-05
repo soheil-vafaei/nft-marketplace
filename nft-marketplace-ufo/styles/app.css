@@ -3,11 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .main 
+body
 {
-    background: rgb(10,29,14);
-    background: linear-gradient(157deg, rgba(10,29,14,1) 0%, rgba(31,112,37,1) 65%, rgba(106,227,112,1) 100%);
-} */
+    background-Image: url(../pages/bgc.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .header--main
 {
     display:flex;
@@ -63,6 +67,7 @@ Link
 {
     margin-right:40px;
     transition:all 0.7s;
+    color:#1c1b17;
 }
 
 img
@@ -72,8 +77,8 @@ img
 
 .link--headers:hover
 {
-    opacity:70;
-    color:#213B21;
+    opacity:50%;
+    color:#D5D8DC;
 }
 
 .header--fix
