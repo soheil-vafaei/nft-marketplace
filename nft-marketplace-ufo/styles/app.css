@@ -2,6 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.header--main
+{
+    display:flex;
+    width:100%;
+    height:80px;
+    background: #0B660B;
+    text-align:center;
+    justify-content: end;
+    align-items:center;
+}
 
 .header--d
 {
@@ -10,20 +20,19 @@
     height:80px;
     background: #0B660B;
     text-align:center;
-    justify-content: center;
+    justify-content: start;
     align-items:center;
+}
+.header--icon
+{
+    text-align:center;
+    justify-content: start;
+    align-items:center;
+
 }
 Image
 {
     display:flex;
-}
-.name--market 
-{
-    text-align:center;
-    justify-content: start;
-    color:#0B660B;
-    background:black;
-
 }
 
 .header--main
@@ -43,11 +52,6 @@ Link
 {
     margin-right:40px;
     transition:all 0.7s;
-}
-
-.am-0
-{
-    margin-right:0;
 }
 
 img
