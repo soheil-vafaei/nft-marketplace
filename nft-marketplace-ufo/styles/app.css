@@ -13,7 +13,7 @@ body
     display:flex;
     width:100%;
     height:80px;
-    background: #0B660B;
+    background-color: #0B660B;
     text-align:center;
     justify-content: end;
     align-items:center;
@@ -24,7 +24,6 @@ body
     display:flex;
     width:100%;
     height:80px;
-    background: #0B660B;
     text-align:center;
     justify-content: start;
     align-items:center;
@@ -46,24 +45,11 @@ Image
     display:flex;
 }
 
-.header--main
-{
-    color:white ;
-    display:flex
-}
-
-Link 
-{
-    text-size:bold;
-    color:white;
-    text-decoration:none;
-}
 
 .link--headers
 {
     margin-right:40px;
     transition:all 0.7s;
-    color:#1c1b17;
     font-size: 18px;
 }
 
@@ -72,19 +58,12 @@ Link
     margin-left:25px;
 }
 
-img
-{
-    display:flex;
-}
-
 .link--headers:hover
 {
     opacity:50%;
-    color:#D5D8DC;
 }
 
 .header--fix
 {
-    position:relative;
-
+    /* position:relative; */
 }
