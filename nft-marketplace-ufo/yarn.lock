@@ -9345,10 +9345,10 @@
     "web3-shh" "1.2.11"
     "web3-utils" "1.2.11"
 
-"web3modal@^1.9.10":
-  "integrity" "sha512-gRByp+toRiADwkJLLGRXsnIVbLS1aJB71sJyryS6C7cF6jJ3cRN1LbPYEMObMyJkyjOZonx0CNZVAYGiD099aA=="
-  "resolved" "https://registry.npmjs.org/web3modal/-/web3modal-1.9.10.tgz"
-  "version" "1.9.10"
+"web3modal@^1.9.11":
+  "integrity" "sha512-fJ8HAHKxS05DlyZIV1oFbA7cT+E2/keyN1E4Yuhb023qGQIXlnht2DtTH978DERYnAnX28wZchwnwpSUnTTmhg=="
+  "resolved" "https://registry.npmjs.org/web3modal/-/web3modal-1.9.11.tgz"
+  "version" "1.9.11"
   dependencies:
     "detect-browser" "^5.1.0"
     "prop-types" "^15.7.2"

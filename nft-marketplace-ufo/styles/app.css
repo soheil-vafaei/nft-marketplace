@@ -5,11 +5,7 @@
 
 body
 {
-    background-Image: url(../pages/bgc.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: #1C1B17;
 }
 
 .header--main
@@ -68,6 +64,12 @@ Link
     margin-right:40px;
     transition:all 0.7s;
     color:#1c1b17;
+    font-size: 18px;
+}
+
+.ml-10
+{
+    margin-left:25px;
 }
 
 img
