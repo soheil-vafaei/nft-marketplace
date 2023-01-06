@@ -5,7 +5,12 @@
 
 body
 {
-    background-color: #1C1B17;
+    background-image: url(../pages/ufo-bgc.png);
+    background-color:rgb(28,25,33);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .header--main

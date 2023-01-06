@@ -9,7 +9,7 @@ import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/UFOMarket.sol/UFOMarket.json'
 
 export default function Home() {
-  const [nfts, setNFts] = useState([])
+  const [nfts, setNfts] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
 
   useEffect(()=> {
@@ -20,14 +20,13 @@ export default function Home() {
     // what we want to load:
     // ***provider, tokenContract, marketContract, data for our marketItems***
 
-    const provider = new ethers.providers.JsonRpcProvider()
+    const provider = new ethers.providers.JsonRpcProvider("https://rpc-mumbai.maticvigil.com")
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
-    const data = await marketContract.fetchMarkeTokens()
+    const data = await marketContract.fetchMarketTokens()
 
     const items = await Promise.all(data.map(async i => {
       const tokenUri = await tokenContract.tokenURI(i.tokenId)
-      // we want get the token metadata - json 
       const meta = await axios.get(tokenUri)
       let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
       let item = {
@@ -35,15 +34,15 @@ export default function Home() {
         tokenId: i.tokenId.toNumber(),
         seller: i.seller,
         owner: i.owner,
-        image: meta.data.image, 
+        image: meta.data.image,
         name: meta.data.name,
-        description: meta.data.description
+        description: meta.data.description,
       }
       return item
     }))
 
-    setNFts(items)
-    setLoadingState('loaded')
+    setNfts(items)
+    setLoadingState('loaded') 
   }
 
   // function to buy nfts for market 
@@ -68,8 +67,11 @@ export default function Home() {
     await transaction.wait()
     loadNFTs()
   }
-  if(loadingState === 'loaded' && !nfts.length) return (<h1
-  className='px-20 py-7 text-4x1'>No NFts in marketplace</h1>)
+  if(loadingState === 'loaded' && !nfts.length) return (
+    <dev>
+      <p>You don't have any NFTs yet!</p>
+    </dev>
+  )
 
   return (
     <div className='flex justify-center'>
