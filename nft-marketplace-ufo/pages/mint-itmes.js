@@ -31,5 +31,20 @@ export default function MintItem() {
             const url = `https://ipfs.infura.io:5001/api/v0/${added.path}`
             setFileUrl(url)
         }catch(error){console.log('error uploading file: ',error)}
+
+        async function createMarket(){
+            const {name, description, price} = formInput
+            if(!name || !description || !price || !fileUrl) return 
+            // upload in ipfs
+            const data = JSON.stringify({
+                name, discription, image: fileUrl
+            })
+            try{
+                const added = await client.add(data)
+                const url = `https://ipfs.infura.io:5001/api/v0/${added.path}`
+                // run a function that create sale and passes in the url
+                createSale(url)
+            }catch(error){console.log('error uploading file: ',error)}
+        }
     }
 }
