@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ufoI from './ufoI.png'
 import ufoName from './ufo.png'
+import '../styles/index.css'
 
 function UFOMarketplace({ Component, pageProps }) {
   return (
