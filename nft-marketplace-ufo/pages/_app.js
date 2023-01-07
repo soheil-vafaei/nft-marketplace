@@ -1,13 +1,20 @@
 import "../styles/app.css"
 import Link from 'next/link'
 import Image from 'next/image'
-import ufoI from './ufoI.png'
-import ufoName from './ufo.png'
+import ufoI from '../styles/img/ufoI.png'
+import ufoName from '../styles/img/ufo.png'
 import '../styles/index.css'
+import '../styles/mint-token.css'
+import Head from 'next/head'
 
 function UFOMarketplace({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>UFO</title>
+        <meta name="description" content="ufo marketplace nft" />
+        <link rel="icon" type="image/png" href={ufoI} />
+      </Head>
       <dev className="main">
         <dev className="header--fix">
           <dev className="header--main">

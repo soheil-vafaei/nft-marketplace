@@ -1,70 +1,62 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body
-{
-    background-image: url(../pages/ufo-bgc.png);
-    background-color:rgb(28,25,33);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+body {
+  background-image: url(../styles/img/ufo-bgc.png);
+  background-color: rgb(28, 25, 33);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.header--main
-{
-    display:flex;
-    width:100%;
-    height:80px;
-    background-color: #0B660B;
-    text-align:center;
-    justify-content: end;
-    align-items:center;
+.header--main {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background-color: #0b660b;
+  text-align: center;
+  justify-content: end;
+  align-items: center;
 }
 
-.header--d
-{
-    display:flex;
-    width:100%;
-    height:80px;
-    text-align:center;
-    justify-content: start;
-    align-items:center;
+.header--d {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  justify-content: start;
+  align-items: center;
 }
-.header--icon
-{
-    text-align:center;
-    justify-content: start;
-    align-items:center;
+.header--icon {
+  text-align: center;
+  justify-content: start;
+  align-items: center;
 }
 
-.icon-name--header
-{
-    margin-top: 14px;
+.icon-name--header {
+  margin-top: 14px;
 }
 
-Image
-{
-    display:flex;
+Image {
+  display: flex;
 }
 
-
-.link--headers
-{
-    margin-right:40px;
-    transition:all 0.7s;
-    font-size: 18px;
+.link--headers {
+  margin-right: 40px;
+  transition: all 0.7s;
+  font-size: 18px;
 }
 
-
-.link--headers:hover
-{
-    opacity:50%;
+.link--headers:hover {
+  opacity: 50%;
 }
 
-.header--fix
-{
-    /* position:relative; */
+.header--fix {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    top:0;
+
 }
