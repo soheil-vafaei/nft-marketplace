@@ -4,6 +4,8 @@ import axios from 'axios'
 import Web3Modal from 'web3modal'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { nftaddress, nftmarketaddress } from '../config'
+import mintToken from '../styles/img/mint-token.png'
+import Image from 'next/image'
 
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/UFOMarket.sol/UFOMarket.json'
