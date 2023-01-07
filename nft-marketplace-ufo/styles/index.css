@@ -10,6 +10,11 @@
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(5px);
   padding: 100px 150px;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: all 0.8s ease-out;
+
 }
 
 .box--main
@@ -18,6 +23,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   margin-top:200px;
   }
+
+  .box--blur:hover{
+    background-color: rgba(98, 98, 98, 0.3);
+    color:white;}

@@ -69,11 +69,10 @@ export default function Home() {
     loadNFTs()
   }
   if (loadingState === 'loaded' && !nfts.length) return (
-    </dev >
     <dev className="box--main">
       <dev className="box--blur">
         <h1>
-          You don't have any NFTs yet!
+          You Don't Have Any NFTs Yet!
         </h1>
       </dev>
     </dev>

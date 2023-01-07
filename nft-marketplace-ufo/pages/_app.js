@@ -11,8 +11,8 @@ function UFOMarketplace({ Component, pageProps }) {
       <dev className="main">
         <dev className="header--fix">
           <dev className="header--main">
-            <Image className="ml-10"src={ufoI} alt="me" width="64" height="64" />
-            <Image className="icon-name--header" src={ufoName} alt="me" width="100" height="100" />
+            <a href="/"><Image className="ml-10"src={ufoI} alt="me" width="64" height="64" /></a>
+            <a href="/"><Image className="icon-name--header" src={ufoName} alt="me" width="100" height="100" /></a>
             <dev className="header--d">
               <nav className="header--main">
                 <Link className="link--headers" href="/">MAIN MARKETPLACE</Link>
