@@ -4,6 +4,7 @@ import axios from 'axios'
 import Web3Modal from 'web3modal'
 import { create as ipfsHttpClient } from 'ipfs-http-client'
 import { nftaddress, nftmarketaddress } from '../config'
+// import ufoI from '../styles/img/ufoI.png'
 
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/UFOMarket.sol/UFOMarket.json'
@@ -105,6 +106,7 @@ export default function MintItem() {
                 {fileUrl && (
                     <img className='img--chose' alt="nft url on ipfs" width="500" height="600" src={fileUrl} />
                 )}
+                 {/* <img className='img--chose' alt="nft url on ipfs" width="500" height="600" src={ufoI} /> */}
                 <button onClick={createMainMarket} className='btn-mint'>
                     Mint NFT
                 </button>

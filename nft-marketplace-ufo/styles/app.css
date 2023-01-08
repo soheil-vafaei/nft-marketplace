@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body
+/* body
 {
     background-image: url(./img/ufo-bgc.png);
     background-color:rgb(28,25,33);
@@ -11,7 +11,7 @@ body
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-}
+} */
 
 .header--main
 {
